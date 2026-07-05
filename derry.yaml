@@ -1,0 +1,9 @@
+ci:
+  (description): >
+    Run the GitHub Actions workflow locally using act. This command will execute
+    the pull_request workflow defined in .github/workflows/main.yaml using the
+    specified container architecture and environment variables.
+  (scripts): >
+    act pull_request -W .github/workflows/main.yaml --container-architecture
+    linux/amd64 -P ubuntu-latest=ghcr.io/catthehacker/ubuntu:act-latest -s \
+    GITHUB_TOKEN="$(gh auth token)"
